@@ -11,6 +11,10 @@ CORS(app, resources={r"/*": {'origins':'http://localhost:8080', "allow_headers":
 def greetings():
     return("Hello, world!")
 
+@app.route('/home', methods=['GET'])
+def home():
+    return("Welcome to the homepage!")
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
 
