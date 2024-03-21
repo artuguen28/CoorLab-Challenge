@@ -1,4 +1,4 @@
-# flightapp
+# tripfinderapp
 
 ## Project setup
 ```
