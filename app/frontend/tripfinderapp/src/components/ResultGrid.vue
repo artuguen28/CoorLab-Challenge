@@ -7,19 +7,25 @@
       <div class="fastestTrip">
         <img alt="Money Hand" src="../assets/handMoney.png" />
         <div class="fastestTripInfo">
-          <h3>Info Fastest</h3>
+          <h3>Fastest: {{ fastestInfo.name }}</h3>
+          <p>Leito: {{ fastestInfo.bed }}</p>
+          <p>Tempo Estimado: {{ fastestInfo.duration }}h</p>
         </div>
         <div class="fastestTripPrice">
-          <h3>Price Fastest</h3>
+          <h3>Preço</h3>
+          <p>R$ {{ fastestInfo.price_confort }}</p>
         </div>
       </div>
       <div class="cheapestTrip">
         <img alt="Money Hand" src="../assets/handMoney.png" />
         <div class="cheapestTripInfo">
-          <h3>Info Cheapest</h3>
+          <h3>Cheapest: {{ cheapestInfo.name }}</h3>
+          <p>Poltrona: {{ cheapestInfo.seat }}</p>
+          <p>Tempo Estimado: {{ cheapestInfo.duration }}h</p>
         </div>
         <div class="cheapestTripPrice">
-          <h3>Info Fastest</h3>
+          <h3>Preço</h3>
+          <p>R$ {{ cheapestInfo.price_econ }}</p>
         </div>
       </div>
     </div>
@@ -30,78 +36,51 @@
 export default {
   name: "ResultGrid",
   props: {
-    fastestInfo: JSON,
-    chapestInfo: JSON,
+    fastestInfo: Object,
+    cheapestInfo: Object,
   },
 };
 </script>
 
 <style scoped>
 .resultPanel {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .resultPanel h3 {
   font-size: 20px;
+  margin-bottom: 20px;
 }
 .resultGrid {
-  box-shadow: 1px 2px 5px #888888;
-  margin-right: 5%;
-  margin-left: 5%;
-  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
-.fastestTrip {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border-width: 1px;
-  border-style: solid;
-  border-color: gray;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
-.fastestTrip img {
-  background-color: aquamarine;
-  height: 70px;
-  grid-column: 1;
-  padding: 10%;
-  margin-bottom: 0px;
-  border-radius: 10px;
-}
-.fastestTripInfo {
-  background-color: blueviolet;
-  grid-column: 2;
-  margin-right: 5%;
-  margin-left: 5%;
-  padding-right: 5%;
-  padding-left: 5%;
-}
-.fastestTripPrice {
-  background-color: blueviolet;
-  grid-column: 3;
-  margin-right: 5%;
-  margin-left: 5%;
-}
+.fastestTrip,
 .cheapestTrip {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border-width: 1px;
-  border-style: solid;
-  border-color: gray;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  flex-basis: 45%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
 }
+.fastestTripInfo h3 .cheapestTripInfo h3 {
+  font-size: 5px;
+}
+.fastestTrip p .cheapestTrip p {
+  font-size: 10px;
+}
+.fastestTrip img,
 .cheapestTrip img {
   background-color: aquamarine;
   height: 70px;
-  grid-column: 1;
   padding: 10%;
   border-radius: 10px;
 }
-.cheapestTripInfo {
-  grid-column: 2;
-}
+.fastestTripInfo,
+.fastestTripPrice,
+.cheapestTripInfo,
 .cheapestTripPrice {
-  grid-column: 3;
+  padding: 10px; /* Added padding for spacing */
 }
 </style>

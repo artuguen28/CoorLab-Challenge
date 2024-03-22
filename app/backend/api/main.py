@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 app.config.from_object(__name__)
 
-CORS(app, resources={r"/*": {'origins':'http://localhost:8080', "allow_headers": "Access-Control-Allow-Origin"}})
+CORS(app, resources={r"/*": {'origins':'http://localhost:8080'}})
 
 
 with open('app/data.json') as f:
@@ -24,11 +24,11 @@ with open('app/data.json') as f:
         item['price_confort'] = float(item['price_confort'][2:])
 
         # Fixing city names
-        if item['name'] == "S\u00e3o Paulo":
-            item['name'] = "São Paulo"
+        if item['city'] == "S\u00e3o Paulo":
+            item['city'] = "São Paulo"
 
-        if item['name'] == "Rio de Janiero":
-            item['name'] = "Rio de Janeiro"
+        if item['city'] == "Rio de Janiero":
+            item['city'] = "Rio de Janeiro"
 
     print("Database loaded!")
 

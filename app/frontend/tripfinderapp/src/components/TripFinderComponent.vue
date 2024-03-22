@@ -28,11 +28,15 @@
               class="date-picker"
             ></date-picker>
           </div>
-          <button class="searchButton">Buscar</button>
+          <button class="searchButton" @click="getTripResults">Buscar</button>
         </div>
         <div class="result">
           <p v-if="showResults">Nenhum dado selecionado</p>
-          <ResultGrid v-else />
+          <ResultGrid
+            v-else
+            :fastestInfo="fastestInfo"
+            :cheapestInfo="cheapestInfo"
+          />
         </div>
       </div>
     </div>
@@ -54,6 +58,8 @@ export default {
       cityNames: [],
       tripDate: null,
       showResults: false,
+      fastestInfo: {},
+      cheapestInfo: {},
     };
   },
   methods: {
@@ -64,6 +70,22 @@ export default {
         .then((res) => {
           console.log(res.data["city_names"]);
           this.cityNames = res.data["city_names"];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getTripResults() {
+      const path = "http://127.0.0.1:3000/trips";
+      const requestData = {
+        cityName: this.selectedCity,
+        date: String(this.tripDate),
+      };
+      axios
+        .post(path, requestData)
+        .then((res) => {
+          this.cheapestInfo = res.data["trips"]["cheapest"];
+          this.fastestInfo = res.data["trips"]["fastest"];
         })
         .catch((err) => {
           console.log(err);
