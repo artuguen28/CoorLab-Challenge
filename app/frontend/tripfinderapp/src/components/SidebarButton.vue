@@ -32,6 +32,10 @@ export default {
   background-color: #2c3e50;
   border-top-color: aliceblue;
   border-bottom-color: aliceblue;
+  border-right-color: #2c3e50;
+  border-left-color: #2c3e50;
+  margin-right: 5px;
+  margin-left: 5px;
   justify-content: start;
   align-items: center;
   border-width: 1px;
@@ -51,11 +55,12 @@ img {
   height: 30px;
   width: 30px;
   grid-column: 1;
+  filter: invert(1);
 }
 
 p {
   grid-column: 2;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   color: white;
 }

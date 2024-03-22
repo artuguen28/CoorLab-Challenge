@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      showTripForm: false,
+      showTripForm: true,
       isDisabled: false,
     };
   },
@@ -59,6 +59,7 @@ export default {
 
 .main {
   flex: 5;
+  background-color: white;
 }
 
 .sidebar {
