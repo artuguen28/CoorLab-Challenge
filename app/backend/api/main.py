@@ -10,7 +10,7 @@ app.config.from_object(__name__)
 CORS(app, resources={r"/*": {'origins':'http://localhost:8080'}})
 
 
-with open('/Users/manuelacrepaldi/Documents/GitHub/CoorLab-Challenge/app/data.json') as f:
+with open('../../data.json') as f:
     database = json.load(f)
 
     # Breif data cleaning

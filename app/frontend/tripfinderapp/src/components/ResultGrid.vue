@@ -5,9 +5,11 @@
     </h3>
     <div class="resultGrid">
       <div class="fastestTrip">
-        <img alt="Money Hand" src="../assets/handMoney.png" />
+        <div class="fastestTripImage">
+          <img alt="Money Hand" src="../assets/handMoney.png" />
+        </div>
         <div class="fastestTripInfo">
-          <h3>Fastest: {{ fastestInfo.name }}</h3>
+          <h3>{{ fastestInfo.name }}</h3>
           <p>Leito: {{ fastestInfo.bed }}</p>
           <p>Tempo Estimado: {{ fastestInfo.duration }}h</p>
         </div>
@@ -17,9 +19,11 @@
         </div>
       </div>
       <div class="cheapestTrip">
-        <img alt="Money Hand" src="../assets/handMoney.png" />
+        <div class="cheapestTripImage">
+          <img alt="Money Hand" src="../assets/handMoney.png" />
+        </div>
         <div class="cheapestTripInfo">
-          <h3>Cheapest: {{ cheapestInfo.name }}</h3>
+          <h3>{{ cheapestInfo.name }}</h3>
           <p>Poltrona: {{ cheapestInfo.seat }}</p>
           <p>Tempo Estimado: {{ cheapestInfo.duration }}h</p>
         </div>
@@ -29,6 +33,7 @@
         </div>
       </div>
     </div>
+    <button class="clearButton" @click="clearFetchedData">Limpar</button>
   </div>
 </template>
 
@@ -38,6 +43,11 @@ export default {
   props: {
     fastestInfo: Object,
     cheapestInfo: Object,
+  },
+  methods: {
+    clearFetchedData() {
+      this.$emit("clear-data");
+    },
   },
 };
 </script>
@@ -54,33 +64,78 @@ export default {
 }
 .resultGrid {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  flex-direction: column;
+  width: 80%;
 }
 .fastestTrip,
 .cheapestTrip {
-  flex-basis: 45%;
-  border: 1px solid gray;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
   border-radius: 5px;
   overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: yellow;
+  margin-left: 3%;
+  height: 90px;
 }
-.fastestTripInfo h3 .cheapestTripInfo h3 {
-  font-size: 5px;
+.cheapestTripImage,
+.fastestTripImage {
+  height: 100%;
+  background-color: aqua;
 }
-.fastestTrip p .cheapestTrip p {
-  font-size: 10px;
+.cheapestTripInfo,
+.fastestTripInfo {
+  flex: 1;
+  height: 100%;
+  text-align: start;
+  padding-left: 3%;
+  background-color: rgb(233, 233, 233);
+  margin-right: 3%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.cheapestTripPrice,
+.fastestTripPrice {
+  flex: 1;
+  height: 100%;
+  border-radius: 10px;
+  text-align: start;
+  padding-left: 3%;
+  padding-bottom: 5%;
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+}
+.cheapestTripPrice h3,
+.fastestTripPrice h3,
+.cheapestTripInfo h3,
+.fastestTripInfo h3 {
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.cheapestTripPrice p,
+.fastestTripPrice p,
+.cheapestTripInfo p,
+.fastestTripInfo p {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .fastestTrip img,
 .cheapestTrip img {
-  background-color: aquamarine;
-  height: 70px;
-  padding: 10%;
-  border-radius: 10px;
+  height: 60px;
+  background-color: red;
 }
-.fastestTripInfo,
-.fastestTripPrice,
-.cheapestTripInfo,
-.cheapestTripPrice {
-  padding: 10px; /* Added padding for spacing */
+.clearButton {
+  background-color: aqua;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: aqua;
+  width: 70%;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

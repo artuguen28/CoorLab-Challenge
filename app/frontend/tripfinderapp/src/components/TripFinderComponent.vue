@@ -28,15 +28,16 @@
               class="date-picker"
             ></date-picker>
           </div>
-          <button class="searchButton" @click="getTripResults">Buscar</button>
+          <button class="searchButton" @click="checkInput">Buscar</button>
         </div>
         <div class="result">
-          <p v-if="showResults">Nenhum dado selecionado</p>
           <ResultGrid
-            v-else
+            v-if="showResults"
             :fastestInfo="fastestInfo"
             :cheapestInfo="cheapestInfo"
+            @clear-data="clearFetchedData"
           />
+          <p v-else>Nenhum dado selecionado</p>
         </div>
       </div>
     </div>
@@ -63,6 +64,13 @@ export default {
     };
   },
   methods: {
+    checkInput() {
+      if (this.selectedCity === "" || this.tripDate === null) {
+        window.alert("Insira todos os dados necessários!");
+      } else {
+        this.getTripResults();
+      }
+    },
     getCityNames() {
       const path = "http://127.0.0.1:3000/cities";
       axios
@@ -76,6 +84,7 @@ export default {
         });
     },
     getTripResults() {
+      this.showResults = true;
       const path = "http://127.0.0.1:3000/trips";
       const requestData = {
         cityName: this.selectedCity,
@@ -91,6 +100,11 @@ export default {
           console.log(err);
         });
     },
+    clearFetchedData() {
+      this.fastestInfo = {};
+      this.cheapestInfo = {};
+      this.showResults = false;
+    },
   },
   created() {
     this.getCityNames();
@@ -98,14 +112,13 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .main {
   padding-right: 10%;
   padding-left: 10%;
-  height: 100%;
   padding-bottom: 20%;
   padding-top: 10%;
+  height: 100%;
 }
 .tripCalc {
   background-color: white;
@@ -114,7 +127,7 @@ export default {
   border-style: solid;
   border-radius: 4px;
   box-shadow: 1px 2px 8px #888888;
-  height: 70%;
+  height: 100%;
 }
 .topBar {
   display: grid;
@@ -136,15 +149,20 @@ export default {
   grid-column: 2;
 }
 .tripMain {
-  display: grid;
-  height: auto;
+  display: flex;
 }
 .tripForm {
-  grid-column: 1;
-  margin: 5%;
+  flex: 1;
   background-color: rgb(233, 233, 233);
-  border-radius: 3px;
-  padding: 5%;
+  border-radius: 5px;
+  margin-right: 3%;
+  margin-left: 3%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding-right: 3%;
+  padding-left: 3%;
+  padding-top: 10%;
+  padding-bottom: 10%;
   height: 100%;
 }
 .tripFormTitle {
@@ -154,10 +172,9 @@ export default {
 .tripFormTitle h3 {
   text-align: start;
   grid-column: 2;
-  font-size: 13px;
+  font-size: 12px;
 }
 .tripFormTitle img {
-  margin: 7px;
   grid-column: 1;
   height: 30px;
 }
@@ -191,11 +208,12 @@ export default {
   margin-top: 10%;
 }
 .result {
+  flex: 2;
   text-align: center;
   align-items: center;
-  grid-column: 2;
+  justify-content: center;
 }
-.result h1 {
-  font-size: 15px;
+.result p {
+  align-items: center;
 }
 </style>

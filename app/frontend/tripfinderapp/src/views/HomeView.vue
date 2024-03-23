@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      showTripForm: false,
+      showTripForm: true,
       isDisabled: false,
     };
   },
@@ -43,27 +43,23 @@ export default {
 </script>
 
 <style scoped>
-.CB-logo {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 5cm;
-}
-
 .home {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
-
+.CB-logo {
+  margin: 10px;
+  width: 5cm;
+}
 .main {
   flex: 5;
   background-color: white;
+  height: 100%;
 }
 
 .sidebar {
   flex: 1;
   background-color: #2c3e50;
+  height: 100%;
 }
 </style>
