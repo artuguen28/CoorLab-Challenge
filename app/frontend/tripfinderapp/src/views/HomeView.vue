@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      showTripForm: true,
+      showTripForm: false,
       isDisabled: false,
     };
   },
@@ -46,6 +46,7 @@ export default {
 .home {
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }
 .CB-logo {
   margin: 10px;
@@ -54,7 +55,6 @@ export default {
 .main {
   flex: 5;
   background-color: white;
-  height: 100%;
 }
 
 .sidebar {

@@ -114,12 +114,12 @@ export default {
 
 <style scoped>
 .main {
-  padding-right: 10%;
-  padding-left: 10%;
-  padding-bottom: 20%;
-  padding-top: 10%;
-  height: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 80%;
 }
+
 .tripCalc {
   background-color: white;
   border-color: gray;
@@ -127,93 +127,94 @@ export default {
   border-style: solid;
   border-radius: 4px;
   box-shadow: 1px 2px 8px #888888;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.tripMain {
+  display: flex;
+  flex: 1;
+}
+
 .topBar {
-  display: grid;
-  text-align: center;
+  display: flex;
   align-items: center;
   justify-content: start;
   background-color: #2c3e50;
   color: white;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  padding: 10px;
 }
+
 .topBar img {
-  grid-column: 1;
-  margin: 10px;
+  margin-right: 10px;
   filter: invert(1);
 }
+
 .topBar h2 {
   font-size: 20px;
-  grid-column: 2;
 }
-.tripMain {
-  display: flex;
-}
+
 .tripForm {
   flex: 1;
   background-color: rgb(233, 233, 233);
   border-radius: 5px;
-  margin-right: 3%;
-  margin-left: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-right: 3%;
-  padding-left: 3%;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  height: 100%;
+  margin: 5%;
+  padding: 3%;
 }
+
 .tripFormTitle {
+  display: flex;
   align-items: center;
-  display: grid;
 }
+
 .tripFormTitle h3 {
-  text-align: start;
-  grid-column: 2;
-  font-size: 12px;
+  font-size: 20px;
 }
+
 .tripFormTitle img {
-  grid-column: 1;
-  height: 30px;
+  margin-right: 10px;
+  height: 40px;
 }
-.tripForm h1 {
-  font-size: 15px;
-}
+
 .inputBox {
-  text-align: start;
   margin: 10px;
+  text-align: start;
 }
+
 .citySelect {
-  width: 100%;
+  width: calc(100% - 20px);
   height: 30px;
   border-radius: 5px;
 }
+
 .inputBox p {
-  font-size: 15px;
+  font-size: 13px;
 }
+
 .date-picker {
   border-radius: 5px;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 30px;
 }
+
 .searchButton {
-  background-color: aqua;
+  background-color: #03a8b5;
   border-radius: 5px;
-  border-width: 1px;
-  border-color: aqua;
+  border: none;
   width: 70%;
   height: 25px;
-  margin-top: 10%;
+  margin-top: 5%;
+  margin-bottom: 17%;
 }
+
 .result {
   flex: 2;
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
+
 .result p {
-  align-items: center;
+  margin-top: 40%;
 }
 </style>

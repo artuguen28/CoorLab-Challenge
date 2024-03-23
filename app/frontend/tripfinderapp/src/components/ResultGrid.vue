@@ -20,7 +20,7 @@
       </div>
       <div class="cheapestTrip">
         <div class="cheapestTripImage">
-          <img alt="Money Hand" src="../assets/handMoney.png" />
+          <img alt="Money Hand" src="../assets/time.png" />
         </div>
         <div class="cheapestTripInfo">
           <h3>{{ cheapestInfo.name }}</h3>
@@ -57,15 +57,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-right: 4%;
+  padding-top: 10%;
 }
 .resultPanel h3 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 .resultGrid {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
 }
 .fastestTrip,
 .cheapestTrip {
@@ -76,23 +78,23 @@ export default {
   overflow: hidden;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: yellow;
   margin-left: 3%;
   height: 90px;
 }
 .cheapestTripImage,
 .fastestTripImage {
   height: 100%;
-  background-color: aqua;
+  background-color: #03a8b5;
 }
 .cheapestTripInfo,
 .fastestTripInfo {
-  flex: 1;
+  flex: 2;
   height: 100%;
   text-align: start;
   padding-left: 3%;
+  padding-top: 5%;
+  padding-right: 3%;
   background-color: rgb(233, 233, 233);
-  margin-right: 3%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -101,8 +103,10 @@ export default {
   flex: 1;
   height: 100%;
   border-radius: 10px;
-  text-align: start;
+  margin-left: 3%;
   padding-left: 3%;
+  padding-top: 10%;
+  text-align: start;
   padding-bottom: 5%;
   background-color: rgb(233, 233, 233);
   width: 100%;
@@ -123,19 +127,22 @@ export default {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.fastestTrip img,
-.cheapestTrip img {
+.fastestTrip img {
   height: 60px;
-  background-color: red;
+  margin: 10px;
+}
+.cheapestTrip img {
+  height: 40px;
+  margin: 20px;
 }
 .clearButton {
-  background-color: aqua;
+  background-color: #fda300;
   border-radius: 5px;
   border-width: 1px;
-  border-color: aqua;
-  width: 70%;
+  border-color: transparent;
+  width: 50%;
   height: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 </style>
