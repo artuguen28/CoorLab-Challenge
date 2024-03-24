@@ -15,7 +15,7 @@
         </div>
         <div class="fastestTripPrice">
           <h3>Preço</h3>
-          <p>R$ {{ fastestInfo.price_confort }}</p>
+          <p>R$ {{ fastestInfo.price_confort.toFixed(2) }}</p>
         </div>
       </div>
       <div class="cheapestTrip">
@@ -29,7 +29,7 @@
         </div>
         <div class="cheapestTripPrice">
           <h3>Preço</h3>
-          <p>R$ {{ cheapestInfo.price_econ }}</p>
+          <p>R$ {{ cheapestInfo.price_econ.toFixed(2) }}</p>
         </div>
       </div>
     </div>
